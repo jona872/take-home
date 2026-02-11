@@ -15,11 +15,15 @@ function Form({ children, onSubmit, disabled }: { children: React.ReactNode; onS
 // fix for take-home checker
 interface ApiResponse { status: "OK"|"ERROR" }
 function API(data: FormState) {
-  return new Promise((res) => {
-    const isRepeated = data.email === "repeated@gmail.com";
-    setTimeout(() => res({
-      status: isRepeated ? "ERROR" : "OK",
-    }), 1000);
+  return new Promise((res, rej) => {
+    try {
+      const isRepeated = data.email === "repeated@gmail.com";
+      setTimeout(() => res({
+        status: isRepeated ? "ERROR" : "OK",
+      }), 1000);
+    } catch (error) {
+      rej(error);
+    }
   }) as Promise<ApiResponse>;
 }
 /* Shape of the signup form values. */
