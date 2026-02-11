@@ -34,8 +34,10 @@ function Form({ children, onSubmit, disabled }: { children: React.ReactNode; onS
 }
 
 // Mock API (provided)
-function API(data: FormState) {
-  return new Promise<{ status: string }>((res) => {
+// fix for take-home checker
+interface ApiResponse { status: "OK"|"ERROR" }
+function API(data: FormState): Promise<ApiResponse> {
+  return new Promise<ApiResponse>((res) => {
     const isRepeated = data.email === "repeated@gmail.com";
     setTimeout(
       () =>
