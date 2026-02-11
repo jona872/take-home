@@ -36,17 +36,13 @@ function Form({ children, onSubmit, disabled }: { children: React.ReactNode; onS
 // Mock API (provided)
 // fix for take-home checker
 interface ApiResponse { status: "OK"|"ERROR" }
-function API(data: FormState): Promise<ApiResponse> {
-  return new Promise<ApiResponse>((res) => {
+function API(data: FormState) {
+  return new Promise((res) => {
     const isRepeated = data.email === "repeated@gmail.com";
-    setTimeout(
-      () =>
-        res({
-          status: isRepeated ? "ERROR" : "OK",
-        }),
-      1000
-    );
-  });
+    setTimeout(() => res({
+      status: isRepeated ? "ERROR" : "OK",
+    }), 1000);
+  }) as Promise<ApiResponse>;  // ← Cast al final
 }
 /* Shape of the signup form values. */
 type FormState = { email: string; password: string };
