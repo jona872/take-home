@@ -1,0 +1,99 @@
+:root {
+    --bg-primary: #f6f7fb;
+    --bg-secondary: #ffffff;
+    --primary: #4f46e5;
+    --primary-hover: #4338ca;
+    --danger: #c53030;
+    --success: #2b8a3e;
+    --border: #ddd;
+    --shadow: rgba(15,23,42,0.06);
+    --muted: #6b7280;
+  }
+  
+  * {
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, Roboto, sans-serif;
+  }
+  
+  html, body { 
+    height: 100%; 
+    margin: 0; 
+    background: var(--bg-primary);
+  }
+  
+  #root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+  }
+  
+  /* Layout */
+  .d-flex { display: flex; }
+  .flex-col { flex-direction: column; }
+  .gap-2 { gap: 0.5rem; }
+  
+  /* Width */
+  .w-90 { width: 90%; }
+  .w-full { width: 100%; }
+  .max-w-720 { max-width: 720px; }
+  .min-h-full { min-height: 100vh; }
+  
+  /* Text */
+  .text-center { text-align: center; }
+  .text-white { color: white; }
+  .text-danger { color: var(--danger); }
+  .text-success { color: var(--success); }
+  .font-semibold { font-weight: 600; }
+  
+  /* Spacing */
+  .p-3 { padding: 0.75rem; }
+  .p-6 { padding: 1.5rem; }
+  .mx-auto { margin: 0 auto; }
+  .m-2 {margin: 0.75rem;}
+  .mt-2 { margin-top: 0.5rem; }
+  .mt-3 { margin-top: 0.75rem; }
+  
+  /* Borders */
+  .rounded-md { border-radius: 0.4rem; }
+  .rounded-2xl { border-radius: 1rem; }
+  
+  /* Inputs */
+  .input { 
+    padding: 0.5rem; 
+    border: 1px solid var(--border); 
+    border-radius: 0.4rem; 
+    width: 100%;
+  }
+  .input:focus { 
+    outline: none; 
+    border-color: var(--primary); 
+    box-shadow: 0 0 0 3px var(--bg-primary); 
+  }
+  
+  /* Buttons */
+  .btn { 
+    border: none; 
+    cursor: pointer; 
+    display: inline-block; 
+  }
+  .hover-bg-primary:hover { background: var(--primary-hover); }
+  .active-scale:active { transform: scale(.99); }
+  .btn[disabled] { 
+    opacity: 0.5; 
+    cursor: not-allowed; 
+  }
+  
+  /* Backgrounds */
+  .bg-primary { background: var(--primary); }
+  .bg-secondary { background: var(--bg-secondary); }
+  
+  /* Shadows */
+  .shadow-md { 
+    box-shadow: 0 0.5rem 1rem var(--shadow); 
+  }
+
+  .text-muted { 
+    color: var(--muted);
+  }
