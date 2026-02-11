@@ -14,15 +14,15 @@ function Form({ children, onSubmit, disabled }: { children: React.ReactNode; onS
 // Mock API (provided)
 // fix for take-home checker
 function API(data: FormState) {
-  return new Promise<{ status: "OK"|"ERROR" }>((res) => {
-    const isRepeated = data.email === "repeated@gmail.com";
-    setTimeout(
-      () =>
-        res({
-          status: isRepeated ? "ERROR" : "OK",
-        }),
-      1000
-    );
+  return new Promise<{ status: "OK"|"ERROR" }>((res, rej) => {
+    try {
+      const isRepeated = data.email === "repeated@gmail.com";
+      setTimeout(() => res({
+        status: isRepeated ? "ERROR" : "OK",
+      }), 1000);
+    } catch (error) {
+      rej(error);
+    }
   });
 }
 /* Shape of the signup form values. */
